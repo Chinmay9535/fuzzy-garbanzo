@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropShiftX - Crop Rotation Planner</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-seedling"></i>
+                <span>CropShiftX</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#planner">Planner</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Smart Crop Rotation Planning System</h1>
+                <p>Optimize your farm's productivity with AI-powered crop rotation recommendations</p>
+                <a href="#planner" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>Why Choose CropShiftX?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI-Powered</h3>
+                    <p>Advanced algorithms for optimal crop rotation suggestions</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Location-Based</h3>
+                    <p>Recommendations tailored to your specific region</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Professional Reports</h3>
+                    <p>Detailed PDF reports for your records</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Yield Optimization</h3>
+                    <p>Improve soil health and crop yields</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="planner" class="planner-section">
+        <div class="container">
+            <h2>Crop Rotation Planner</h2>
+            <div class="form-container">
+                <div class="input-group">
+                    <label for="currentCrop">Current Crop</label>
+                    <input type="text" id="currentCrop" placeholder="Enter your current crop" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="soilType">Soil Type</label>
+                    <select id="soilType" required>
+                        <option value="">Select soil type</option>
+                        <option value="Clay">Clay</option>
+                        <option value="Sandy">Sandy</option>
+                        <option value="Loamy">Loamy</option>
+                        <option value="Silt">Silt</option>
+                        <option value="Peat">Peat</option>
+                        <option value="Chalk">Chalk</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="region">Region</label>
+                    <select id="region" required>
+                        <option value="">Select your region</option>
+                        <optgroup label="North America">
+                            <option value="Northeast USA">Northeast USA</option>
+                            <option value="Southeast USA">Southeast USA</option>
+                            <option value="Midwest USA">Midwest USA</option>
+                            <option value="Southwest USA">Southwest USA</option>
+                            <option value="Northwest USA">Northwest USA</option>
+                            <option value="Central Canada">Central Canada</option>
+                            <option value="Eastern Canada">Eastern Canada</option>
+                            <option value="Western Canada">Western Canada</option>
+                        </optgroup>
+                        <optgroup label="Europe">
+                            <option value="Northern Europe">Northern Europe</option>
+                            <option value="Southern Europe">Southern Europe</option>
+                            <option value="Western Europe">Western Europe</option>
+                            <option value="Eastern Europe">Eastern Europe</option>
+                        </optgroup>
+                        <optgroup label="Asia">
+                            <option value="East Asia">East Asia</option>
+                            <option value="South Asia">South Asia</option>
+                            <option value="Southeast Asia">Southeast Asia</option>
+                            <option value="Central Asia">Central Asia</option>
+                        </optgroup>
+                        <optgroup label="Other Regions">
+                            <option value="Australia">Australia</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="South America">South America</option>
+                            <option value="Africa">Africa</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Location</label>
+                    <div id="map"></div>
+                    <p class="location-text">Click on the map to select your location</p>
+                </div>
+
+                <button id="generateBtn" class="generate-btn">Generate Rotation Plan</button>
+            </div>
+
+            <div class="result-container" style="display: none;">
+                <h2>Your 3-Year Crop Rotation Plan</h2>
+                <div id="planResult"></div>
+                <button id="downloadBtn" class="download-btn">Download Report</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits-section">
+        <div class="container">
+            <h2>Benefits of Crop Rotation</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?w=800&q=80" alt="Soil Health">
+                    <h3>Improved Soil Health</h3>
+                    <p>Enhance soil structure and nutrient content through strategic crop rotation.</p>
+                </div>
+                <div class="benefit-card">
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80" alt="Pest Control">
+                    <h3>Natural Pest Control</h3>
+                    <p>Reduce pest problems by breaking their life cycles naturally.</p>
+                </div>
+                <div class="benefit-card">
+                    <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80" alt="Yield Increase">
+                    <h3>Higher Yields</h3>
+                    <p>Maximize your farm's productivity with optimized crop sequences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>support@cropshiftx.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Farming Avenue, Agritech Valley</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CropShiftX</h3>
+                    <p>Smart farming solutions for a sustainable future</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#planner">Planner</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CropShiftX. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="loading-overlay" style="display: none;">
+        <div class="loader"></div>
+        <p>Generating your personalized crop rotation plan...</p>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
