@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EcoHarvest - Transform agricultural waste into sustainable resources with AI-powered recommendations for crop waste management solutions.">
+    <meta name="keywords" content="crop waste management, sustainable agriculture, waste conversion, eco-friendly farming">
+    <meta name="author" content="EcoHarvest">
+    <meta name="theme-color" content="#2ecc71">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="EcoHarvest - Sustainable Crop Waste Management">
+    <meta property="og:description" content="Transform agricultural waste into sustainable resources with AI-powered recommendations.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="path-to-your-logo.png">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" as="script">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <title>EcoHarvest - Crop Waste Management</title>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preconnect to External Domains -->
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="EcoHarvest">
+    
+    <!-- Performance Monitoring -->
+    <script>
+        // Simple performance monitoring
+        window.performance.mark('start');
+        window.addEventListener('load', () => {
+            window.performance.mark('end');
+            const measure = window.performance.measure('page-load', 'start', 'end');
+            console.log(`Page loaded in: ${measure.duration}ms`);
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-leaf"></i>
+            <span>EcoHarvest</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Transform Crop Waste into Sustainable Resources</h1>
+                <p>Get personalized recommendations for converting agricultural waste into valuable products</p>
+                <a href="#input-form" class="cta-button">Get Started <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-item">
+                    <i class="fas fa-recycle"></i>
+                    <h3>100%</h3>
+                    <p>Sustainable Solutions</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-seedling"></i>
+                    <h3>50+</h3>
+                    <p>Crop Types</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-globe-asia"></i>
+                    <h3>Global</h3>
+                    <p>Coverage</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2 class="section-title" data-aos="fade-up">Why Choose EcoHarvest?</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data-Driven Solutions</h3>
+                    <p>Get AI-powered recommendations based on your specific crop waste details</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Eco-Friendly</h3>
+                    <p>Convert waste into valuable resources while protecting the environment</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Economic Benefits</h3>
+                    <p>Transform waste into profit with sustainable solutions</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="process">
+            <h2 class="section-title" data-aos="fade-up">How It Works</h2>
+            <div class="process-steps">
+                <div class="step" data-aos="fade-right">
+                    <div class="step-number">1</div>
+                    <h3>Input Details</h3>
+                    <p>Enter your crop type, quantity, and location</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="100">
+                    <div class="step-number">2</div>
+                    <h3>Get Analysis</h3>
+                    <p>Receive AI-powered waste management solutions</p>
+                </div>
+                <div class="step" data-aos="fade-right" data-aos-delay="200">
+                    <div class="step-number">3</div>
+                    <h3>Implement</h3>
+                    <p>Follow detailed recommendations for sustainable results</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="input-form" class="input-form">
+            <div class="form-container" data-aos="fade-up">
+                <h2>Input Your Crop Details</h2>
+                <form id="wasteForm">
+                    <div class="form-group">
+                        <label for="cropType">Crop Type</label>
+                        <select id="cropType" required>
+                            <option value="">Select crop type</option>
+                            <option value="rice">Rice</option>
+                            <option value="wheat">Wheat</option>
+                            <option value="corn">Corn</option>
+                            <option value="sugarcane">Sugarcane</option>
+                            <option value="cotton">Cotton</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity (in tons)</label>
+                        <input type="number" id="quantity" min="0" step="0.1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Location</label>
+                        <div id="map" class="map-container"></div>
+                        <input type="hidden" id="latitude">
+                        <input type="hidden" id="longitude">
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span>Get Recommendations</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section class="results" id="results">
+            <div class="results-container hidden">
+                <h2 class="section-title">Your Sustainable Solutions</h2>
+                <div class="solutions-grid">
+                    <!-- Results will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-leaf"></i> EcoHarvest</h3>
+                <p>Transforming agricultural waste into sustainable solutions for a better tomorrow</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#input-form">Get Started</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@ecoharvest.com</p>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Green Street, Eco City</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EcoHarvest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        });
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html> 
